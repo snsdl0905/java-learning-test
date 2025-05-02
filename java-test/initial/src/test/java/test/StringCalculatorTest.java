@@ -13,7 +13,7 @@ public class StringCalculatorTest {
     @Test
     @DisplayName("기본 구분자만 사용했을 때 제대로 작동하는지 확인한다")
     void defaultDelimiterTest() {
-        final var input = "1.3:4";
+        final var input = "1,3:4";
         final var actual = stringCalculator.calculate(input);
         final var expected = 8;
         assertThat(actual).isEqualTo(expected);
@@ -21,7 +21,7 @@ public class StringCalculatorTest {
 
     @DisplayName("커스텀 구분자를 사용했을 때 제대로 작동하는지 확인한다")
     void customDelimiterTest() {
-        final var input = "//@\n1.3:4@5";
+        final var input = "//@\n1,3:4@5";
         final var actual = stringCalculator.calculate(input);
         final var expected = 13;
         assertThat(actual).isEqualTo(expected);

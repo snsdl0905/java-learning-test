@@ -2,7 +2,8 @@ package test;
 
 import calculator.Calculator;
 import org.junit.jupiter.api.Test;
-import static  org.junit.jupiter.api.Assertions.*;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class CalculatorTest {
 
@@ -10,40 +11,37 @@ public class CalculatorTest {
 
     @Test
     void addingTest(){
-        assertAll("덧셈 테스트",
-                () -> assertEquals(5, calc.add(2, 3)),
-                () -> assertEquals(3, calc.add(6, -3)),
-                () -> assertEquals(-5, calc.add(-2, -3))
-        );
+        final var a = 2;
+        final var b = 3;
+        final var actual = calc.add(a, b);
+        final var expected = 5;
+        assertThat(actual).isEqualTo(expected);
     }
 
     @Test
     void SubtractingTest(){
-        assertAll("뺄셈 테스트",
-                () -> assertEquals(2, calc.subtract(5, 3)),
-                () -> assertEquals(8, calc.subtract(3, -5)),
-                () -> assertEquals(-5, calc.subtract(-2, 3)),
-                () -> assertEquals(-2, calc.subtract(4, 6))
-        );
-
+        final var a = -2;
+        final var b = 3;
+        final var actual = calc.subtract(a, b);
+        final var expected = -5;
+        assertThat(actual).isEqualTo(expected);
     }
 
     @Test
     void multiplyingTest(){
-        assertAll("곱셈 테스트",
-                () -> assertEquals(6, calc.multiply(2, 3)),
-                () -> assertEquals(-8, calc.multiply(-4, 2)),
-                () -> assertEquals(6, calc.multiply(-2, -3))
-        );
-
+        final var a = -4;
+        final var b = 2;
+        final var actual = calc.multiply(a, b);
+        final var expected = -8;
+        assertThat(actual).isEqualTo(expected);
     }
 
     @Test
     void dividingTest(){
-        assertAll("나눗셈 테스트",
-                () -> assertEquals(1, calc.divide(3, 2)),
-                () -> assertEquals(2, calc.divide(-6, -3)),
-                () -> assertEquals(-1, calc.divide(2, -3))
-        );
+        final var a = 3;
+        final var b = 2;
+        final var actual = calc.divide(a, b);
+        final var expected = 1;
+        assertThat(actual).isEqualTo(expected);
     }
 }

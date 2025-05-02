@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 public class StringCalculator {
     private static final String DELIMITER = "[,|:]";
-    private static final Pattern CUSTOM_PATTERN = Pattern.compile("//(.*?)\\n(.*)");
+    private static final Pattern CUSTOM_PATTERN = Pattern.compile("//(.*?)\n(.*)");
 
     public int calculate(String input){
         String delimiter = DELIMITER;
